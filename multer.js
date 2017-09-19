@@ -13,7 +13,7 @@ var storage = multer.diskStorage({ //multers disk storage settings
         },
         filename: function (req, file, cb) {
             // var datetimestamp = Date.now();
-            cb(null, file.fieldname  + '_' + file.originalname)
+            cb(null, file.originalname)
         }
     });
 var upload = multer({ //multer settings
@@ -28,14 +28,15 @@ app.get('/' , function(req,res){
 })
 
 app.post('/upload', upload.any(),function(req,res,next){
-  res.json({error_code:0,err_desc:null});
-  
+  console.log(JSON.parse(req.body.field));
+  console.log(req.files);
+  res.send("Files uploaded successfully");
 })
 app.use(function (err, req, res, next) {
   console.error(err.stack)
   res.status(500).send('Something broke!')
 })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+app.listen(5000, function () {
+  console.log('Example app listening on port 5000!');
 });
