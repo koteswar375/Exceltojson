@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>FileUpload</title>
+</head>
+<body ng-controller="myController" >
+  <form id        =  "uploadForm"
+     enctype   =  "multipart/form-data">
+<input type="file" file-model="myFile" name="file" />Upload
+<input type="submit"  value="Upload" ng-click="submit()">
+</form>
+{{books[0]}}
+<div>
+  <table>
+    <thead>
+      <tr>Title</tr>
+      <tr>ID</tr>
+      <tr>Author</tr>
+    </thead>
+    <tbody>
+    <tr ng-cloak ng-repeat="x in books">
+      <td>{{x.BookAuthor}}</td>
+      <td>{{x.BookID}}</td>
+      <td>{{x.BookTitle}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/js/angular.min.js"></script>
+  <script type="text/javascript" src="/js/controller.js"></script>
+</body>
+</html>
