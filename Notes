@@ -1,0 +1,40 @@
+Guru99 - 04/10
+Web application terms:
+Scalability - web application is said to be scalable if by adding more hardware, application can linearly take more requests than before.
+Two ways of adding more hardware are:
+Scaling Up (vertical scaling) :– increasing the number CPUs or adding faster CPUs on a single box.
+Scaling Out (horizontal scaling) :– increasing the number of boxes.
+Response time - Time taken by web application to process request and return response
+An application is said to be performing well if it can handle more requests with-out degrading response time by just adding more resources.
+
+Response Time Vs Scalability 
+Response time and Scalability don’t aways go together i.e. application might have acceptable response times but can not handle more than certain number of requests or application is handle increasing number of requests but has poor or long response times. We have strike a balance between scalability and response time to get good performance of the application.
+
+Capacity Planning 
+Capacity planning is an exercise of figuring out the required hardware to handle expected load in production. 
+
+CPU Bound Application:
+An application is said to be CPU bound if application throughput is limited by its CPU. By increasing CPU speed application response time can be reduced.
+
+Few scenarios where applications could be CPU Bound
+Applications which are computing or processing data with out performing IO operations. (Finance or Trading Applications)
+Applications which use cache heavily and don’t perform any IO operations
+Applications which are asynchronous (i.e. Non Blocking), don’t wait on external resources. (Reactive Pattern Applications, NodeJS application)
+
+IO Bound Application
+An application is said to be IO bound if application throughput is limited by its IO or network operations and increasing CPU speed does not bring down application response times. Most applications are IO bound due to the CRUD operation in most applications 
+
+Few scenarios where applications could be IO Bound
+
+Applications which are depended on database and perform CRUD operations
+Applications which consume drown stream web services for performing its operations
+
+
+About chrome V8:
+V8 is Google’s open source high-performance JavaScript engine, written in C++ and used in Google Chrome, the open source browser from Google, and in Node.js, among others. It implements ECMAScript as specified in ECMA-262, and runs on Windows 7 or later, macOS 10.5+, and Linux systems 
+V8 can run standalone, or can be embedded into any C++ application(Node JS). 
+
+Node uses the V8 JavaScript Runtime engine, the one which is used by Google Chrome. Node has a wrapper over the JavaScript engine which makes the runtime engine much faster and hence processing of requests within Node also become faster.
+
+
+NodeJs is a CPU bound application which means that the response time decreases with increasing CPU speed.
