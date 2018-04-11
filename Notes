@@ -35,6 +35,48 @@ V8 is Google’s open source high-performance JavaScript engine, written in C++ 
 V8 can run standalone, or can be embedded into any C++ application(Node JS). 
 
 Node uses the V8 JavaScript Runtime engine, the one which is used by Google Chrome. Node has a wrapper over the JavaScript engine which makes the runtime engine much faster and hence processing of requests within Node also become faster.
+NodeJs is a CPU bound application which means that the response time decreases with increasing CPU speed.
 
+Guru99 - 04/11
+Runtime Environment:
+The runtime environment provides a state for the target machine to have access to resources such as software libraries, system variables and environment variables, and provide all necessary services and support to the processes involved in the execution of the application or program. In certain software or applications such as Adobe Flash Player or Microsoft PowerPoint Viewer the runtime environment is available to end users as well.
+
+Software developers need a runtime environment to test their software's functioning. As a result, all software development applications include a runtime environment component which allows the testing of the application during execution. Tracking bugs or debugging for any errors are done in most applications with the help of runtime environments. Runtime execution continues even if the application or program crashes. Most runtime environments are capable of reporting of why an application or program crashed. One of the more popular runtime environments is Java, which helps Java applets and applications to be executed in any machine which has a Java runtime environment installed.
+
+
+NODEJS:
+
+Node.js is an open-source, cross-platform runtime environment used for development of server-side web applications.
+Node.js applications are written in JavaScript and can be run on a wide variety of operating systems.
+Node uses the V8 JavaScript Runtime engine, the one which is used by Google Chrome.
+Google announced Chrome and its new V8 JavaScript engine in late 2008, which fundamentally enabled JavaScript to run faster than before—a lot faster!.
+
+The V8 JavaScript engines greatest advantage over other JavaScript engines was the compiling of JavaScript code to native machine code before executing it. This and other optimizations made JavaScript a viable programming language capable of executing complex tasks.
+
+The V8 JavaScript engine wasn’t built to run in a server environment, primarily because JavaScript was originally developed to support browser operations and designed around browser events.
+Node has a wrapper over the JavaScript engine which makes the runtime engine much faster and hence processing of requests within Node also become faster.
 
 NodeJs is a CPU bound application which means that the response time decreases with increasing CPU speed.
+Features of Node.js:
+Asynchronous event driven IO helps concurrent request handling:
+This feature basically means that if a request is received by Node for some Input/Output operation, it will execute the operation in the background and continue with processing other requests.
+Node uses the V8 JavaScript Runtime engine:
+Node has a wrapper over the JavaScript engine which makes the runtime engine much faster and hence processing of requests within Node also become faster.
+
+Who uses Node.js
+LinkedIn 
+Paypal 
+Mozilla has implemented Node.js to support browser APIs 
+Ebay hosts their HTTP API service in Node.js
+
+When to Use Node.js
+Node.js is best for usage in streaming or event-based real-time applications like
+Game servers
+Chat applications
+Streaming servers
+Advertisement servers
+Node.js is good when you need high levels of concurrency but less amount of dedicated CPU time.
+
+When to not use Node.js
+Node.js can be used for a lot of applications with various purpose, the only scenario where it should not be used is if there are long processing times which is required by the application.
+Node is structured to be single threaded. If any application is required to carry out some long running calculations in the background. So if the server is doing some calculation, it won't be able to process any other requests. As discussed above, Node.js is best when processing needs less dedicated CPU time.
