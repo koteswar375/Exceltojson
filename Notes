@@ -80,3 +80,25 @@ Node.js is good when you need high levels of concurrency but less amount of dedi
 When to not use Node.js
 Node.js can be used for a lot of applications with various purpose, the only scenario where it should not be used is if there are long processing times which is required by the application.
 Node is structured to be single threaded. If any application is required to carry out some long running calculations in the background. So if the server is doing some calculation, it won't be able to process any other requests. As discussed above, Node.js is best when processing needs less dedicated CPU time.
+
+04/12
+====
+
+Stateless model and stateful model:
+The stateful and stateless models of software application behavior define how a user’s web browser communicates with a web server. 
+In a stateless model, a client program makes a request to an application server, which sends data back to the client. The server treats all client connections equally and saves no information from prior requests or sessions.A website that serves up a simple static web page is a good example of the stateless model. 
+In a stateful mode, the server keeps track of who users are and what they do from one screen to the next.Preserving the state of users’ actions is fundamental to having a meaningful, continuous session.
+
+Why use Nodejs:
+with Node.js web applications, you can now work in real-time and have a 2-way communication. The state is maintained, and the either the client or server can start the communication.
+
+Code Explanation:
+The basic functionality of the "require" function is that it reads a JavaScript file, executes the file, and then proceeds to return an object. 
+Using this object, one can then use the various functionalities available in the module called by the require function.
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.end('Hello World!');
+}).listen(8080);
+we are creating a server application which is based on a simple function. This function is called, whenever a request is made to our server application.
+When a request is received, we are asking our function to return a "Hello World" response to the client. The writeHead function is used to send header data to the client and while the end function will close the connection to the client.
+We are then using the server.listen function to make our server application listen to client requests on port no 7000
