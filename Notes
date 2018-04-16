@@ -168,3 +168,33 @@ How to access these functions:
  Addition.AddNumber(1,2)
  Since the functions in the Addition.js file are now accessible, we can now make a call to the AddNumber function
  
+ 04/16
+=====
+What are Routes?
+Routing refers for determining the way in which an application responds to a client request to a particular endpoint.
+
+app.METHOD(PATH, HANDLER)
+
+View-engines:
+Templates can be used to inject content in an efficient manner. 
+NOTE: In latest vesion of Node jade has been deprecated. Instead use pug.
+var express=require('express');
+var app=express();
+app.set('view engine','jade'); //specify in the application is "view engine" that will be used to render the templates. 
+app.get('/',function(req,res)
+{
+res.render('index', //The render function is used to render a web page.
+{title:'Guru99',message:'Welcome'})
+});
+var server=app.listen(3000,function() {});
+ 
+Node.js and NoSQL Databases:
+============================
+Node.js has the ability to work with both MySQL and MongoDB as databases
+For MySQL, the required module is called "mysql" and for using MongoDB the required module to be installed is "Mongoose."
+
+With these modules, you can perform the following operations in Node.js
+Manage the connection pooling – Here is where you can specify the number of MySQL database connections that should be maintained and saved by Node.js.
+Create and close a connection to a database. In either case, you can provide a callback function which can be called whenever the "create" and "close" connection methods are executed.
+Queries can be executed to get data from respective databases to retrieve data.
+Data manipulation such as inserting data, deleting and updating data can also be achieved with these modules.
