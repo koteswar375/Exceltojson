@@ -102,3 +102,69 @@ http.createServer(function (req, res) {
 we are creating a server application which is based on a simple function. This function is called, whenever a request is made to our server application.
 When a request is received, we are asking our function to return a "Hello World" response to the client. The writeHead function is used to send header data to the client and while the end function will close the connection to the client.
 We are then using the server.listen function to make our server application listen to client requests on port no 7000
+
+04/13
+===
+
+A module in Node.js is a logical encapsulation of code in a single unit.
+Some of the popular modules:
+Socket.io - - Socket.IO enables real-time bidirectional event-based communication. This module is good for creation of chatting based applications.
+Jade - a high-performance template engine
+MongoDB  - officially supported node.js driver for MongoDB
+Bluebird  -  library with focus on innovative features and performance
+
+require() keyword is used to incorporate the functionality of a module in an application.
+
+Additional Info:
+An Ajax call is an asynchronous request initiated by the browser that does not directly result in a page transition.
+An Ajax ("Asynchronous Javascript and XML") request is sometimes called an XHR request ("XmlHttpRequest")
+The browser will send probably a POST request via XHR to the server and be notified of the response (hence "asynchronous"). But the server typically can't distinguish between an Ajax request or a page transition because both simply come down to HTTP requests.
+
+Internet is often called "TCP/IP" network. At the low level (IP, Internet Protocol) the Internet is packet-oriented. Hosts send packets to other hosts.
+There is overhead in establishing a new TCP connection (DNS lookups, TCP handshake, SSL/TLS handshake, etc). Without a keep-alive, every HTTP request has to establish a new TCP connection, and then close the connection once the response has been sent/received. A keep-alive allows an existing TCP connection to be re-used for multiple requests/responses, thus avoiding all of that overhead. That is what makes the connection "persistent".
+In HTTP 0.9 and 1.0, by default the server closes its end of a TCP connection after sending a response to a client. The client must close its end of the TCP connection after receiving the response. In HTTP 1.0 (but not in 0.9), a client can explicitly ask the server not to close its end of the connection by including a Connection: keep-alive header in the request. If the server agrees, it includes a Connection: keep-alive header in the response, and does not close its end of the connection. The client may then re-use the same TCP connection to send its next request.
+In HTTP 1.1, keep-alive is the default behavior, unless the client explicitly asks the server to close the connection by including a Connection: close header in its request, or the server decides to includes a Connection: close header in its response.
+
+full duplex - A telephone conversation is full-duplex (both parties, if they so wish, may talk at the same time and be heard)
+half-duplex - a walkie talkie conversation is half-duplex (one talks, the other listens).
+
+A Keep Alive HTTP header indicates a persistent connection with HTTP server. . The main objects is to eliminate the needs for opening TCP connection for each HTTP request. However, while there is a persistent connection open, the protocol for communication between client and server is still following the basic HTTP request/response pattern. In other word, server side can't push data to client.
+WebSocket is used to setup a persistent, full-duplex connection. With this full-duplex connection, server side can push data to client and client should be expected to process data from server side at any time.
+
+The Need For Keep-Alive
+Creating multiple connections may reduce the loading time. It also utilizes many resources on the server. We can eventually overcome this issue and transfer all those files through a single connection by enabling the Keep-Alive, which avoids the need to repeatedly open and close a new connection. If it is not enabled, the process could take considerably longer to display the web page.
+How To Enable Keep-Alive
+Keep-Alive (also known as HTTP Keep-Alive or persistent connection) is a bit of communication (message) between the client and server that says: “You may grab many files.”Keep-Alive is enabled by explicitly requesting it via HTTP header. If you are able to access your Apache configuration file (httpd.conf), you can turn on keep-alive there.
+
+Properties That Affect Keep-Alive Functionality:
+KeepAlive - On or Off
+MaxKeepAliveRequests - It sets the maximum number of requests for every Keep-Alive connection
+KeepAliveTimeout - This setting prevents unused connections from hanging around for too long. It sets how long your server should wait for new requests from clients.
+A value between 7 to 10 seconds is usually ideal. With higher traffic this value can go extremely higher to make sure there is no frequent TCP connection re-initiated
+
+Benefits Of Keep-Alive:
+Reduced CPU usage
+Reduced Latency
+highly recommended to enable Keep-Alive for HTTPS connections 
+
+Conclusion:
+Unlike HTTP/1.0 keep-alive connections, HTTP/1.1 connections are always active. HTTP/1.1 assumes all connections are persistent unless the response contains a "Connection: close" header. But not sending "Connection: close" does not mean that the server maintains the connection forever and it's still possible for the connection to be dropped.
+
+Creating NPM modules
+Node.js has the ability to create custom modules and allows you to include those custom modules in your Node.js application.
+var exports=module.exports={};
+The "exports" keyword is used to ensure that the functionality defined in this file can actually be accessed by other files.
+exports.AddNumber=function(a,b)
+{
+return a+b;
+};
+ The function is added to the module "exports" to make the function as a public function that can be accessed by other application modules.
+ 
+How to access these functions:
+==============================
+ var Addition=require('./Addition.js');
+ using the "require" keyword to include the functionality in the Addition.js file
+ 
+ Addition.AddNumber(1,2)
+ Since the functions in the Addition.js file are now accessible, we can now make a call to the AddNumber function
+ 
