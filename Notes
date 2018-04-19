@@ -168,8 +168,65 @@ How to access these functions:
  Addition.AddNumber(1,2)
  Since the functions in the Addition.js file are now accessible, we can now make a call to the AddNumber function
  
+ 04/14
+=====
+Create, Extend, Publish:
+A module in Node.js is a logical encapsulation of code in a single unit. Separation into modules makes code more manageable and maintainable for future purposes
+One can create custom NPM modules, extend these modules and also publish these modules.
+
+Some NPM commands:
+
+npm install express –global  --> Installs packages in global mode
+npm list --global   --> Lists all the global packages installed on the machine
+npm update underscore  --> updates a package version
+npm search express  --> search for a package
+npm uninstall express --> uninstalls a package
+npm install underscore@1.7.0 --> Installs a specific version
+
+package.json file:
+==============
+Holds the metadata about a particular project.
+The package.json files contains information such as the project description, the version of the project in a particular distribution, license information, and configuration data.
+
+Create HTTP Web Server in Node.js:
+==================================
+
+var http=require('http')
+var server=http.createServer((function(request,response)
+{
+	response.writeHead(200,
+	{"Content-Type" : "text/plain"));
+	response.end("Hello World\n");
+}));
+server.listen(7000);
+
+The basic functionality of the require function is that it reads a JavaScript file, executes the file, and then proceeds to return the exports object. So in our case, since we want to use the functionality of the http module, we use the require function to get the required functions from the http module so that it can be used in our application.
+Then we are creating a server application which is based on a simple function. This function is called whenever a request is made to our server application.
+
+Making GET requests to other sites:
+var request = require("request");
+	request("http://www.google.com",function(error,response,body)
+	{
+		console.log(body);
+	});
+making a GET Request to www.google.com and subsequently calling a function when a response is received. When a response is received the parameters(error, response, and body) will have the following values
+Error – In case there is any error received when using the GET request, this will be recorded here.
+Response- The response will have the http headers which are sent back in the response.
+Body- The body will contain the entire content of the response sent by Google
+ 
  04/16
 =====
+
+What is Express.js?
+Express.js is a Node js web application server framework, which is specifically designed for building single-page, multi-page, and hybrid web applications.
+It has become the standard server framework for node.js. Express is the backend part of something known as the MEAN stack.
+The MEAN is a free and open-source JavaScript software stack for building dynamic web sites and web applications which has the following components;
+1) MongoDB - The standard NoSQL database
+2) Express.js - The default web applications framework
+3) Angular.js - The JavaScript MVC framework used for web applications
+4) Node.js - Framework used for scalable server-side and networking applications.
+
+The Express.js framework makes it very easy to develop an application which can be used to handle multiple types of requests like the GET, PUT, and POST and DELETE requests.
 What are Routes?
 Routing refers for determining the way in which an application responds to a client request to a particular endpoint.
 
