@@ -1,0 +1,7 @@
+CORS and request module:
+https://steemit.com/nodejs/@hegdes/calling-soap-services-from-angularjs-client-with-node-and-express-proxy
+https://blog.risingstack.com/node-hero-node-js-request-module-tutorial/
+https://blog.risingstack.com/node-hero-node-js-request-module-tutorial/  --> status codes + request-promise module
+How to get statuscode:
+https://stackoverflow.com/questions/23712392/http-get-nodejs-how-to-get-error-status-code
+https://stackoverflow.com/questions/5922842/getting-http-headers-with-node-js
